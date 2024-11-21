@@ -5,7 +5,7 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="PantallaInicio">
+      <SelectionState runConfigName="PantallaCarga">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
