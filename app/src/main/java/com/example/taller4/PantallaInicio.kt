@@ -71,7 +71,7 @@ class PantallaInicio : AppCompatActivity() {
         delay(1000)
         val horaActual = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
         return when (horaActual){
-            in 0..11 -> "Buenos dias"
+            in 6..11 -> "Buenos dias"
             in 12..19 -> "Buenas tardes"
             else -> "Buenas noches"
         }.uppercase()

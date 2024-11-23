@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.ImageView
 import java.lang.Thread.sleep
 
-
 class PantallaCarga : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
