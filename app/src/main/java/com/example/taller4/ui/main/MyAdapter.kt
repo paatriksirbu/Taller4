@@ -1,10 +1,11 @@
-package com.example.taller4
+package com.example.taller4.ui.main
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.taller4.R
 
 class MyAdapter(private var items: MutableList<String>, private val clickListener: (String) -> Unit) :
     RecyclerView.Adapter<MyAdapter.ViewHolder>() {
