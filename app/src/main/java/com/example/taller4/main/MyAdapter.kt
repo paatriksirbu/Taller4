@@ -1,4 +1,4 @@
-package com.example.taller4.ui.main
+package com.example.taller4.main
 
 import android.view.LayoutInflater
 import android.view.View
