@@ -1,4 +1,4 @@
-package com.example.taller4.ui.main
+package com.example.taller4.main
 
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.taller4.ItemRepository
 import com.example.taller4.MyAppWidgetProvider
 import com.example.taller4.R
 import com.example.taller4.SharedViewModel
@@ -24,6 +25,7 @@ class ListFragment : Fragment() {
     private lateinit var viewModel: SharedViewModel
     private lateinit var adapter: MyAdapter
     private lateinit var sharedPreferences: SharedPreferences
+    private val itemRepository = ItemRepository()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -71,6 +73,8 @@ class ListFragment : Fragment() {
             if (newItem.isNotEmpty()) {
                 viewModel.addItem(newItem)
                 editTextNewItem.text?.clear()
+
+                itemRepository.addItem(newItem)
             } else {
                 Toast.makeText(context, "Por favor ingrese un elemento", Toast.LENGTH_SHORT).show()
             }

@@ -1,5 +1,6 @@
 package com.example.taller4
 
+import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
@@ -11,7 +12,13 @@ import kotlin.random.Random
 
 class MyAppWidgetProvider : AppWidgetProvider() {
 
-    override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
+    private val itemRepository = ItemRepository()
+
+    override fun onUpdate(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetIds: IntArray
+    ) {
         super.onUpdate(context, appWidgetManager, appWidgetIds)
 
         for (appWidgetId in appWidgetIds) {
@@ -19,13 +26,21 @@ class MyAppWidgetProvider : AppWidgetProvider() {
         }
     }
 
-    companion object {
-        private fun updateAppWidget(context: Context, appWidgetManager: AppWidgetManager, appWidgetId: Int) {
-            val views = RemoteViews(context.packageName, R.layout.widget_layout)
+    @SuppressLint("RemoteViewLayout")
+    private fun updateAppWidget(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetId: Int
+    ) {
+        val views = RemoteViews(context.packageName, R.layout.widget_layout)
 
-            // Generar datos aleatorios para simular un resumen de datos
-            val randomSummary = "Datos actualizados: ${Random.nextInt(0, 100)}"
-            views.setTextViewText(R.id.widgetSummaryText, randomSummary)
+        itemRepository.getItems { items ->
+            val summaryText = if (items.isNotEmpty()) {
+                "Último elemento: ${items.last()}"
+            } else {
+                "No hay elementos añadidos"
+            }
+            views.setTextViewText(R.id.widgetSummaryText, summaryText)
 
             // Configurar la acción del botón para actualizar el widget
             val intent = Intent(context, MyAppWidgetProvider::class.java).apply {
@@ -36,8 +51,10 @@ class MyAppWidgetProvider : AppWidgetProvider() {
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
 
             // Crear el PendingIntent con FLAG_IMMUTABLE para Android 12 y superiores
-            val pendingIntent = PendingIntent.getBroadcast(context, 0, intent,
-                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+            val pendingIntent = PendingIntent.getBroadcast(
+                context, 0, intent,
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            )
 
             views.setOnClickPendingIntent(R.id.widgetUpdateButton, pendingIntent)
 
