@@ -35,6 +35,16 @@ class ActividadPrincipal : AppCompatActivity(), SensorEventListener {
         if (accelerometer == null) {
             Toast.makeText(this, "Este dispositivo no tiene accelerómetro.", Toast.LENGTH_LONG).show()
         }
+
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_list_container, ListFragment())
+                .commit()
+
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_detail_container, DetailFragment())
+                .commit()
+        }
     }
 
     override fun onResume() {
