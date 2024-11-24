@@ -56,7 +56,6 @@ class ActividadPrincipal : AppCompatActivity(), SensorEventListener {
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        // No se necesita implementar
     }
 
     private fun getRandomColor(): Int {
