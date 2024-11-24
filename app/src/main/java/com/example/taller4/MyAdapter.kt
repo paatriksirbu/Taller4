@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MyAdapter(private val items: List<String>, private val clickListener: (String) -> Unit) :
+class MyAdapter(private var items: MutableList<String>, private val clickListener: (String) -> Unit) :
     RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -29,5 +29,11 @@ class MyAdapter(private val items: List<String>, private val clickListener: (Str
 
     override fun getItemCount(): Int {
         return items.size
+    }
+
+    fun updateItems(newItems: MutableList<String>) {
+        items.clear()
+        items.addAll(newItems)
+        notifyDataSetChanged()
     }
 }
