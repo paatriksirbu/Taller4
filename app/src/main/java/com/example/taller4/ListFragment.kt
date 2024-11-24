@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ListFragment : Fragment() {
     private lateinit var viewModel: SharedViewModel
@@ -40,12 +41,13 @@ class ListFragment : Fragment() {
         }
 
         val editTextNewItem = view.findViewById<EditText>(R.id.editTextNewItem)
-        val buttonAddItem = view.findViewById<Button>(R.id.buttonAddItem)
-        buttonAddItem.setOnClickListener {
+        val fabAddItem = view.findViewById<FloatingActionButton>(R.id.fabAddItem)
+
+        fabAddItem.setOnClickListener {
             val newItem = editTextNewItem.text.toString()
             if (newItem.isNotEmpty()) {
                 viewModel.addItem(newItem)
-                editTextNewItem.text.clear()
+                editTextNewItem.text?.clear()
             }
         }
 
