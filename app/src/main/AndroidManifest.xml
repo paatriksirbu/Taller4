@@ -18,7 +18,7 @@
             android:name=".PantallaCarga"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            android:theme="@style/Theme.Taller4">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -30,7 +30,7 @@
             android:name=".ActividadPrincipal"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            android:theme="@style/Theme.Taller4">
         </activity>
 
         <!-- Pantalla de inicio auxiliar -->

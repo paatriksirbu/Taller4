@@ -8,11 +8,13 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import kotlin.random.Random
 
 class DetailFragment : Fragment() {
 
     private lateinit var viewModel: SharedViewModel
     private lateinit var detailTextView: TextView
+    private lateinit var idTextView: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,6 +23,8 @@ class DetailFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_detail, container, false)
         detailTextView = view.findViewById(R.id.detailTextView)
+
+        idTextView = view.findViewById(R.id.idTextView)
 
         return view
     }
@@ -33,6 +37,10 @@ class DetailFragment : Fragment() {
         viewModel.getSelectedItem().observe(viewLifecycleOwner, Observer { selectedItem ->
             selectedItem?.let {
                 detailTextView.text = "Detalles del elemento seleccionado: $it"
+
+                //Ahora, generamos un ID aleatorio para el elemento seleccionado
+                val randomId = Random.nextInt(0,1000)
+                idTextView.text = "ID: $randomId"
             }
         })
     }

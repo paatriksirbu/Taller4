@@ -1,5 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.Taller4" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- Tema principal de la aplicación -->
+    <style name="Theme.Taller4" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="android:colorBackground">@color/white</item>
+    </style>
+
 </resources>

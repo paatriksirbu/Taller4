@@ -4,20 +4,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/white">
 
-    <!-- Texto para mostrar los detalles del elemento seleccionado -->
-    <TextView
-        android:id="@+id/detailTextView"
+    <!-- CardView para contener el detalle del elemento seleccionado -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/detailCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Selecciona un elemento de la lista para ver sus detalles"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        android:gravity="center"
-        android:layout_marginTop="24dp"/>
+        app:cardElevation="8dp"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="@android:color/background_light"
+        android:padding="24dp">
+
+        <!-- Contenedor del contenido dentro del CardView -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Texto para mostrar los detalles del elemento seleccionado -->
+            <TextView
+                android:id="@+id/detailTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Selecciona un elemento de la lista para ver sus detalles"
+                android:textSize="24sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Texto para mostrar el ID aleatorio del elemento seleccionado -->
+            <TextView
+                android:id="@+id/idTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ID del elemento: "
+                android:textSize="20sp"
+                android:textColor="@android:color/darker_gray"
+                android:gravity="center"/>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
