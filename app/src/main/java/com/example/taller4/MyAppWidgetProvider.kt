@@ -8,7 +8,6 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
-import kotlin.random.Random
 
 class MyAppWidgetProvider : AppWidgetProvider() {
 
@@ -53,7 +52,7 @@ class MyAppWidgetProvider : AppWidgetProvider() {
             // Crear el PendingIntent con FLAG_IMMUTABLE para Android 12 y superiores
             val pendingIntent = PendingIntent.getBroadcast(
                 context, 0, intent,
-                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+                PendingIntent.FLAG_IMMUTABLE
             )
 
             views.setOnClickPendingIntent(R.id.widgetUpdateButton, pendingIntent)

@@ -12,10 +12,13 @@ class ItemRepository {
         val itemData = hashMapOf("name" to itemName)
         itemsCollection.add(itemData)
             .addOnSuccessListener {
-                // Elemento añadido correctamente
             }
-            .addOnFailureListener {
-                // Manejo de errores si falla la adición
+            .addOnFailureListener{
+                try {
+                    throw it
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
             }
     }
 
