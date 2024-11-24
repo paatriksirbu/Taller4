@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -37,8 +38,9 @@ class PantallaInicio : AppCompatActivity() {
         saludoTextView.text = "Cargando saludo"
         cargarSaludo()
 
-        val mainButton: Button = findViewById(R.id.mainButton)
-        mainButton.setOnClickListener {
+        val mainImageButton: ImageButton = findViewById(R.id.mainImageButton)
+
+        mainImageButton.setOnClickListener {
             val intent = Intent(this, ActividadPrincipal::class.java)
             startActivity(intent)
         }

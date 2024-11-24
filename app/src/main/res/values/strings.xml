@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Taller4</string>
+
+    <string name="go_to_next_activity">Ir a la siguiente actividad</string>
 </resources>
